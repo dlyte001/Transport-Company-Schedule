@@ -8,9 +8,16 @@ def book_ride(request):
     if request.method == "POST":
         form = BookingForm(request.POST)
         if form.is_valid():
-           booking = form.save()
-           send_booking_confirmation(booking)
-           return redirect("booking_success", booking_id=booking.id)
+            booking = form.save()
+
+            # Safe email sending
+            try:
+                send_booking_confirmation(booking)
+            except Exception as e:
+                print("EMAIL ERROR:", e)
+
+            # Correct redirect
+            return redirect(f"/success/?id={booking.id}")
     else:
         form = BookingForm()
 
@@ -21,6 +28,10 @@ from .models import Booking
 
 def booking_success(request):
     booking_id = request.GET.get("id")
+
+    if not booking_id:
+        return render(request, "booking/error.html", {"message": "Missing booking ID"})
+
     booking = get_object_or_404(Booking, id=booking_id)
     return render(request, "booking/success.html", {"booking": booking})
 
