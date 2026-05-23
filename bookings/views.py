@@ -34,3 +34,10 @@ def load_time_slots(request):
 
     html = render_to_string("booking/time_slots.html", {"slots": slots})
     return HttpResponse(html)
+
+from django.shortcuts import render
+
+def home(request):
+    # Option A: Redirect to the book_ride page
+    from django.shortcuts import redirect
+    return redirect('book_ride')
