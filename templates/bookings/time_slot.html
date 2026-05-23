@@ -1,0 +1,6 @@
+<label for="id_time">Time</label>
+<select name="time" id="id_time" class="w-full border rounded p-2">
+  {% for t in slots %}
+  <option value="{{ t }}">{{ t }}</option>
+  {% endfor %}
+</select>

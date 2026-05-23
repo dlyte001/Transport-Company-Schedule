@@ -1,0 +1,12 @@
+Hello {{ booking.name }},
+
+Your ride has been successfully booked.
+
+Ride Details:
+- Date: {{ booking.date }}
+- Time: {{ booking.time }}
+- Pickup: {{ booking.pickup_location }}
+- Dropoff: {{ booking.dropoff_location }}
+- Ride Type: {{ booking.ride_type }}
+
+Thank you for choosing TransportPro!

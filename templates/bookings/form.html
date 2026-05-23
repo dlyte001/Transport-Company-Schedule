@@ -1,0 +1,60 @@
+{% extends "base.html" %} {% block content %}
+<div class="max-w-2xl mx-auto bg-white p-8 shadow rounded">
+  <h2 class="text-3xl font-bold mb-6 text-center">Book a Ride</h2>
+
+  <form method="POST">
+    {% csrf_token %}
+
+    <!-- Name -->
+    <label class="block mb-2 font-medium">Full Name</label>
+    {{ form.name|as_widget(attrs={'class': 'w-full p-2 border rounded mb-4'}) }}
+
+    <!-- Phone -->
+    <label class="block mb-2 font-medium">Phone</label>
+    {{ form.phone|as_widget(attrs={'class': 'w-full p-2 border rounded mb-4'})
+    }}
+
+    <!-- Pickup -->
+    <label class="block mb-2 font-medium">Pickup Location</label>
+    {{ form.pickup_location|as_widget(attrs={'class': 'w-full p-2 border rounded
+    mb-4'}) }}
+
+    <!-- Dropoff -->
+    <label class="block mb-2 font-medium">Dropoff Location</label>
+    {{ form.dropoff_location|as_widget(attrs={'class': 'w-full p-2 border
+    rounded mb-4'}) }}
+
+    <!-- Ride Type -->
+    <label class="block mb-2 font-medium">Ride Type</label>
+    {{ form.ride_type|as_widget(attrs={'class': 'w-full p-2 border rounded
+    mb-4'}) }}
+
+    <!-- Date -->
+    <label class="block mb-2 font-medium">Date</label>
+    <input
+      type="date"
+      name="date"
+      id="id_date"
+      hx-get="/htmx/time-slots/"
+      hx-target="#time-slots"
+      hx-trigger="change"
+      class="w-full p-2 border rounded mb-4"
+    />
+
+    <!-- Time (Dynamic) -->
+    <div id="time-slots" class="mb-4">
+      <label class="block mb-2 font-medium">Time</label>
+      <select name="time" class="w-full p-2 border rounded">
+        <option>Select time</option>
+      </select>
+    </div>
+
+    <!-- Submit -->
+    <button
+      class="w-full bg-blue-600 text-white p-3 rounded font-semibold mt-4"
+    >
+      Submit Booking
+    </button>
+  </form>
+</div>
+{% endblock %}

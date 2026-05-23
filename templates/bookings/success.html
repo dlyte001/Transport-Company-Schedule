@@ -1,0 +1,18 @@
+{% extends "base.html" %} {% block content %}
+<div class="max-w-xl mx-auto bg-white p-10 rounded shadow text-center">
+  <h1 class="text-3xl font-bold mb-4 text-green-600">Booking Confirmed!</h1>
+
+  <p class="text-lg mb-2">Thank you, {{ booking.name }}.</p>
+  <p class="mb-4">Your ride is scheduled for:</p>
+
+  <div class="bg-gray-100 p-4 rounded mb-6">
+    <p><strong>Date:</strong> {{ booking.date }}</p>
+    <p><strong>Time:</strong> {{ booking.time }}</p>
+    <p><strong>Pickup:</strong> {{ booking.pickup_location }}</p>
+    <p><strong>Dropoff:</strong> {{ booking.dropoff_location }}</p>
+    <p><strong>Ride Type:</strong> {{ booking.ride_type }}</p>
+  </div>
+
+  <a href="/" class="px-4 py-2 bg-blue-600 text-white rounded">Return Home</a>
+</div>
+{% endblock %}

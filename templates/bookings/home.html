@@ -1,0 +1,31 @@
+{% extends "base.html" %} {% block title %}Ride Booking{% endblock %} {% block
+content %}
+<section class="mx-auto flex min-h-screen max-w-5xl items-center px-4 py-12">
+  <div
+    class="grid w-full gap-10 rounded-3xl bg-white p-8 shadow-sm md:grid-cols-2 md:p-12"
+  >
+    <div>
+      <p
+        class="mb-4 inline-flex rounded-full bg-slate-100 px-3 py-1 text-sm font-medium text-slate-600"
+      >
+        Simple ride scheduling
+      </p>
+      <h1 class="text-4xl font-bold tracking-tight text-slate-900 md:text-5xl">
+        Book a ride with a clean, fast experience.
+      </h1>
+      <p class="mt-4 max-w-xl text-base leading-7 text-slate-600">
+        This website will let users request a ride, receive confirmation, and
+        let the admin manage bookings from Django admin.
+      </p>
+    </div>
+
+    <div class="rounded-2xl border border-slate-200 bg-slate-50 p-6">
+      <h2 class="text-lg font-semibold text-slate-900">Phase 1 is ready</h2>
+      <p class="mt-2 text-sm leading-6 text-slate-600">
+        Next phases will add the Booking model, form, HTMX interactions, email,
+        and admin improvements.
+      </p>
+    </div>
+  </div>
+</section>
+{% endblock %}
